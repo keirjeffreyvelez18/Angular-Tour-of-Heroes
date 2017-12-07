@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-
-import { Hero } from './hero';
-//import { HEROES } from './mock-heroes';
-//import { MessageService } from './message.service';
-
 @Injectable()
-export class HeroService {
+export class MessageService {
+  messages: string[] = [];
 
-  constructor(private messageService: MessageService) { }
+  add(message: string) {
+    this.messages.push(message);
+  }
 
-  getHeroes(): Observable<Hero[]> {
-    // Todo: send the message _after_ fetching the heroes
-    this.messageService.add('HeroService: fetched heroes');
-    return of(HEROES);
+  clear() {
+    this.messages = [];
   }
 }
+
+
+/*
+Copyright 2017 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
